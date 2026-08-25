@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: billpayment-postgres
+    environment:
+      POSTGRES_DB: electricity_billing
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - billpayment-pgdata:/var/lib/postgresql/data
+
+volumes:
+  billpayment-pgdata:
